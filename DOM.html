@@ -4,6 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>DOM</title>
+    <style>
+        .oculta { 
+            display: none;
+        }
+    </style>
 </head>
 <body>
     <h1>Titulo 1</h1>
@@ -11,16 +16,30 @@
 
     <p class="paragrafoClasse">Lorem ipsum dolor sit amet.</p>
 
-    <ul>
-        <li>coisa</li>
-        <li>coisa</li>
-        <li id="especial">coisa</li>
+    <ul class="lista">
+        <li>coisa 1</li>
+        <li class="oculta">coisa 2</li>
+        <li id="especial">coisa 3</li>
     </ul>
 
     <div>
         <h2>Titulo 2</h2>
         <p>Lorem ipsum dolor sit amet.</p>
     </div>
+     <!-- objeto do tipo input nao contem atributo de inner html, contem value -->
+    <form action="#">
+        <input type="text" id="nome" placeholder="Digite seu nome">
+        <br><br>
+        <input type="checkbox" name="turno" id="turnoManha" value="manhã">
+        <label for="turnoManha">manhã</label>
+
+        <input type="checkbox" name="turno" id="turnoTarde" value="tarde">
+        <label for="turnoTarde">tarde</label>
+        <button onclick="dizeroi()">Dizer oi </button>
+        
+    </form>
+
+
 
     <script>
         //mais generalista = tag
@@ -30,8 +49,8 @@
 
         //mais especifica que a tag
         let paragrafoComClasse = document.getElementsByClassName ("paragrafoClasse")
-        let pClasse = document.querySelector(".paragrafoClasse")//primeira ocorrencia 
-        let pClasse = document.querySelectorAll(".paragrafoClasse")[]
+        let pclasse = document.querySelector(".paragrafoClasse")//primeira ocorrencia 
+        let pClasse = document.querySelectorAll(".paragrafoClasse")
 
         //metodo mais especificp - um unico elemento 
         let item = document.getElementById('especial')
@@ -44,6 +63,11 @@
 
         let div = document.querySelector('div')
         div.innerHTML += '<h3> Meu titulo 3</h3>'
+
+        let itemOculto = document.querySelector ('.oculta')
+        // function (dizerOi) {
+        //     alert('oi')
+        // }
     </script>
 
 </body>
