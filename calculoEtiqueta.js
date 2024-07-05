@@ -6,7 +6,7 @@ let corEtiquetas = document.getElementsByName ('cor')
 
 let resposta = document.querySelector('div')
 
-function calcularDesconto(params) {
+function calcularDesconto() {
 let descontoCor = 0 
 let descontoQuantidade = 0 
 let cor = 'indefinida'
@@ -38,7 +38,7 @@ let valorFinal = (valor.value*qtd.value)* (1-(descontoCor + descontoQuantidade))
 
 resposta.innerHTML = ` 
 <ul> 
-<li> Preço Original Peça: R$${Valor.value} </li>
+<li> Preço Original Peça: R$${valor.value} </li>
 <li> Cor da Etiqueta: ${cor.value} </li>
 <li> Quantidade de peças: ${qtd.value} </li>
 <li> Desconto por cor: ${descontoCor*100}% </li>
