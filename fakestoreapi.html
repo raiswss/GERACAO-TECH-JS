@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>fake Store API</title>
+</head>
+<body>
+
+
+    <script>
+     let products = []
+let elementoPai = document.querySelector('body')
+
+// assincrona ----- leva tempo para ser executada
+
+fetch('https://fakestoreapi.com/products')
+    .then(res => res.json())
+    .then((objeto)=>{products = objeto
+        return products
+    })
+    .then(produtos => {
+        produtos.forEach(elemento => {
+            let cardProduto = document.createElement('div')
+            cardProduto.className = 'card'
+            cardProduto.style.width = '18rem'
+
+
+            let imagem = document.createElement('img')
+            imagem.src = elemento.image
+            imagem.classList.add('card-img-top')
+            imagem.alt = elemento.title
+
+            let cardBody = document.createElement('div')
+            cardBody.className = 'card-body'
+
+            let titulo = document.createElement('h5')
+            titulo.className = 'card-title'
+            titulo.textContent = elemento.title
+
+            let preco = document.createElement('p')
+            preco.className = 'card-text'
+            preco.textContent = `R$ ${elemento.price}`
+
+            let descricao = document.createElement('p')
+            descricao.className = 'card-text'
+            descricao.textContent = elemento.description
+
+            let botao = document.createElement('a')
+            botao.href = '#'
+            botao.className = 'btn btn-primary'
+            botao.textContent = 'Comprar'
+
+            cardProduto.appendChild(imagem)
+            cardBody.appendChild(titulo)
+            cardBody.appendChild(preco)
+            cardBody.appendChild(descricao)
+            cardBody.appendChild(botao)
+
+            cardProduto.appendChild(cardBody)
+
+            elementoPai.appendChild(cardProduto)
+        });
+    })
+    .then(produtos => console.log(produtos))
+    .catch( erro => console.log(erro))
+// sincrona ----- Executa imediatamente
+    console.log(products)
+    </script>
+</body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        try {
+            
+            //todof código possível de erro
+            let numero =Number(prompt('digite apenas 1 ou 2'))
+
+            if (numero == 1 || numero == 2) {
+                alert('acertou')
+            }
+
+            else {
+                throw new Error('Você não digitou 1 ou 2. Erro personalizado')
+
+            }
+        } catch (error) {
+            console.log(error.message)
+            //captar qualquer erro levantado no bloco try
+        }
+
+        finally{
+            alert('SEMPRE SOU EXECUTADO')
+        }
+
+        alert('executei mesmo com erro')
+    </script>
+</body>
+</html>
