@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM</title>
+    <style>
+        .oculta { 
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <h1>Titulo 1</h1>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam, minus.</p>
+
+    <p class="paragrafoClasse">Lorem ipsum dolor sit amet.</p>
+
+    <ul class="lista">
+        <li>coisa 1</li>
+        <li class="oculta">coisa 2</li>
+        <li id="especial">coisa 3</li>
+    </ul>
+
+    <div>
+        <h2>Titulo 2</h2>
+        <p>Lorem ipsum dolor sit amet.</p>
+    </div>
+     <!-- objeto do tipo input nao contem atributo de inner html, contem value -->
+    <form action="#">
+        <input type="text" id="nome" placeholder="Digite seu nome">
+        <br><br>
+        <input type="checkbox" name="turno" id="turnoManha" value="manhã">
+        <label for="turnoManha">manhã</label>
+
+        <input type="checkbox" name="turno" id="turnoTarde" value="tarde">
+        <label for="turnoTarde">tarde</label>
+        <button onclick="dizeroi()">Dizer oi </button>
+        
+    </form>
+
+
+
+    <script>
+        //mais generalista = tag
+        let paragrafos = document.getElementsByTagName("p") // []
+        let p = document.querySelector('p') //seleciona o primeiro elemento com o seletor indicado
+        let todosOsParagrafos = document.querySelectorAll('p')//[]
+
+        //mais especifica que a tag
+        let paragrafoComClasse = document.getElementsByClassName ("paragrafoClasse")
+        let pclasse = document.querySelector(".paragrafoClasse")//primeira ocorrencia 
+        let pClasse = document.querySelectorAll(".paragrafoClasse")
+
+        //metodo mais especificp - um unico elemento 
+        let item = document.getElementById('especial')
+        //manipulação da propriedade de css
+        item.style.color = 'red'
+        // manipulação do conteudo da tag 
+        item.innerHTML = 'mudei com js'
+
+        let li = document.querySelector('#especial')
+
+        let div = document.querySelector('div')
+        div.innerHTML += '<h3> Meu titulo 3</h3>'
+
+        let itemOculto = document.querySelector ('.oculta')
+        // function (dizerOi) {
+        //     alert('oi')
+        // }
+    </script>
+
+</body>
+</html>
