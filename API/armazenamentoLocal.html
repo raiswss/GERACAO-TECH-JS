@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let meuObjeto =[{nome:'cadeira', cor: 'vermelha', preco: '25.00'}]
+
+        //armazenando um objeto no armazenamento local
+        localStorage.setItem('item', JSON.stringify(meuObjeto))
+
+        //recuperando um objeto do armazenamento local 
+        let carrinho = JSON.parse(localStorage.gettItem('chave'))
+        console.log(carrinho)
+        carrinho.push({nome: 'mesa', cor: 'vermelha', preco: '50.00'})
+
+
+        localStorage.setItem('chave', JSON.stringify(carrinho))
+        
+        localStorage.clear()
+        
+    </script>
+</body>
+</html>
